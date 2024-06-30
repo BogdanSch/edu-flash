@@ -1,17 +1,18 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import React, { useState } from "react";
 
 export default function FlashCard({ question, answer }) {
-    
-  const handleFlashCardClick = (event) => {
+  const [isFlipped, setIsFlipped] = useState(false);
 
+  const handleFlashCardClick = () => {
+    setIsFlipped(!isFlipped);
   };
   return (
-    <div className="flashcards__item card p-4" onClick={handleFlashCardClick}>
-      <div className="flashcards__item-question active" ref={}>
-        {question}
-      </div>
-      <div className="flashcards__item-answer" ref={}>{answer}</div>
+    <div
+      className={`flashcards__item ${isFlipped ? "flipped" : ""}`}
+      onClick={handleFlashCardClick}
+    >
+      <div className="flashcards__item-front card">{question}</div>
+      <div className="flashcards__item-back card">{answer}</div>
     </div>
   );
 }

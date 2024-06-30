@@ -18,7 +18,7 @@ $dark-grey: #2a2a2a;
 .wrapper {
     overflow: hidden;
     @include flex-column();
-    min-height: 100vh;
+    height: 100vh;
 }
 
 body {
@@ -48,42 +48,65 @@ p {
     color: $dark-grey;
 }
 
+.image {
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
 /* Flashcards - Start */
 .flashcards {
     &__list {
-        margin-top: 80px;
+        margin-top: 60px;
         @include flex-row();
         justify-content: center;
         align-items: center;
         column-gap: 20px;
+        perspective: 1000px;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
     }
 
     &__item {
-        transition: all 0.6s ease;
-        min-width: 26rem !important;
-        text-align: center;
+        position: relative;
+        width: 26rem;
+        height: 300px;
         cursor: pointer;
+        transition: all 1s ease;
+        transform-style: preserve-3d;
 
         &:hover {
             box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
             transform: translateY(-10px);
         }
 
-        &-question {
-            display: none;
-
-            &.active {
-                display: block;
-            }
+        &.flipped {
+            transform: rotateY(180deg);
         }
 
-        &-answer {
-            display: none;
-
-            &.active {
-                display: block;
-            }
+        &-front,
+        &-back {
+            backface-visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include flex-column();
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
         }
 
+        &-back {
+            transform: rotateY(180deg);
+        }
     }
 }
