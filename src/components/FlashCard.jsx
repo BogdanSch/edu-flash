@@ -11,8 +11,12 @@ export default function FlashCard({ question, answer }) {
       className={`flashcards__item ${isFlipped ? "flipped" : ""}`}
       onClick={handleFlashCardClick}
     >
-      <div className="flashcards__item-front card">{question}</div>
-      <div className="flashcards__item-back card">{answer}</div>
+      <div className="flashcards__item-front card">
+        <p>{question}</p>
+      </div>
+      <div className="flashcards__item-back card">
+        <p>{answer}</p>
+      </div>
     </div>
   );
 }

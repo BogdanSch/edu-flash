@@ -21,7 +21,7 @@ $dark-grey-transparent: #2a2a2a1a;
 .wrapper {
     overflow: hidden;
     @include flex-column();
-    height: 100vh;
+    min-height: 100vh;
 }
 
 body {
@@ -84,8 +84,8 @@ p {
 
     &__item {
         position: relative;
-        width: 26rem;
-        height: 300px;
+        width: 30rem;
+        min-height: 300px;
         cursor: pointer;
         transition: all 1s ease;
         transform-style: preserve-3d;
@@ -101,6 +101,7 @@ p {
 
         &-front,
         &-back {
+            padding: 32px 20px;
             backface-visibility: hidden;
             position: absolute;
             top: 0;
@@ -112,6 +113,11 @@ p {
             align-items: center;
             font-size: 1.5rem;
             background-color: $white;
+            overflow-y: scroll;
+
+            p {
+                font-size: 20px;
+            }
         }
 
         &-back {
