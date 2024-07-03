@@ -116,7 +116,7 @@ p {
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
-            filter: grayscale(40%) blur(0.4px);
+            filter: grayscale(40%);
 
             p {
                 font-size: 20px;
@@ -132,7 +132,7 @@ p {
             justify-content: center;
             align-items: center;
             transform: rotateY(180deg);
-            // background-color: $grey;
+            filter: blur(.7px);
         }
     }
 }

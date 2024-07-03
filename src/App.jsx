@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { React } from "react";
 import FlashCard from "./components/FlashCard";
 
 import gandalfImage from "./assets/images/gandalf-grey-white-differences-lotr.avif";
@@ -12,10 +12,12 @@ function App() {
           <div className="flashcards__wrap">
             <div className="text-content">
               <h1 className="flashcards__title">Edu Flash</h1>
-              <p className="flashcards__description"></p>Edu Flash is a
-              user-friendly flashcards app designed to make learning fast and
-              fun. Create, organize, and review your flashcards anytime,
-              anywhere, and boost your knowledge efficiently.
+              <p className="flashcards__description">
+                Edu Flash is a user-friendly flashcards app designed to make
+                learning fast and fun. Create, organize, and review your
+                flashcards anytime, anywhere, and boost your knowledge
+                efficiently.
+              </p>
             </div>
             <div className="flashcards__list">
               <FlashCard
